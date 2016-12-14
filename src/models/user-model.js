@@ -1,28 +1,32 @@
 var mongoose = require('mongoose');
 
 var UserSchema = new mongoose.Schema({
-    index: {
-        type: Number,
-        required: false
-    },
-    name: {
+    username: {
         type: String,
         required: true,
         unique: true
     },
-    position: {
+    password: {
         type: String,
         required: true
     },
-    overall: {
-        type: Number,
-        required: true
-    },
-    posrank: {
-        type: Number,
-        required: true
+    players: {
+        type: Array,
+        required: false
     }
 });
+
+var bcrypt = require('bcryptjs');
+
+UserSchema.methods.validatePassword = function(password, callback) {
+    bcrypt.compare(password, this.password, function(err, isValid) {
+        if(err) {
+            callback(err);
+            return;
+        }
+        callback(null, isValid);
+    });
+};
 
 var User = mongoose.model('User', UserSchema);
 

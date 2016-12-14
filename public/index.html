@@ -8,11 +8,64 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="main.js"></script>
     
+    <div id="new-user-wrap">
+        <form id="newuser" onsubmit="return false">
+            <h2> Create your new account </h2>
+            <h3> Username </h3>
+            <input id="new-user" type="text">
+            <h3> Password </h3>
+            <input id="new-pass" type="text">
+            <div id="create-user"> <input type="submit" id="signup" value="Create Account"> </div>
+            <div id="temp-error"> </div>
+        </form>
+    </div>
+    <div id="login-user">
+        <form id="login"> 
+            <h2> Welcome back!  Please login below </h2>
+            <h3> Username </h3> 
+            <input id="username" type="text"> 
+            <h3> Password </h3> 
+            <input id="password" type="text">
+            <div id="submit-username"> <input type="submit" id="accept" value="Login"> </div>
+            <div id="temp-error"> </div>
+        </form>
+    </div>
+    
+        <div id="temp">
+            <input type="submit" id="getUsers" value="Console list users">
+        </div>
+    
     <div id="temp">
         <input type="submit" id="getPlayers" value="Console list players">
     </div>
     <div id="temp">
         <input type="submit" id="updatePlayer" value="Update Player">
+    </div>
+    <div id="temp">
+        <input type="submit" id="listPlayers" value="List Players on screen">
+    </div>
+    <div id="temp">
+        <input type="submit" id="listQBs" value="List QBs">
+        <input type="submit" id="listRBs" value="List RBs">
+        <input type="submit" id="listWRs" value="List WRs">
+        <input type="submit" id="listTEs" value="List TEs">
+        <input type="submit" id="listOTs" value="List OTs">
+        <input type="submit" id="listOGs" value="List OGs">
+        <input type="submit" id="listOCs" value="List OCs">
+        <input type="submit" id="listDEs" value="List DEs">
+        <input type="submit" id="listDTs" value="List DTs">
+        <input type="submit" id="listOLBs" value="List OLBs">
+        <input type="submit" id="listILBs" value="List ILBs">
+        <input type="submit" id="listCBs" value="List CBs">
+        <input type="submit" id="listSAFs" value="List S">
+        <input type="submit" id="listKs" value="List K">
+        <input type="submit" id="listPs" value="List P">
+    </div>
+    <!-- <div id="temp">
+    <input type="submit" id="deletePlayers" value="Delete Players in DB">
+    </div>-->
+    <div id="playerlist">
+        
     </div>
 </body>
 </html>
