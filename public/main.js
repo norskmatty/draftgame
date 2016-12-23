@@ -102,7 +102,25 @@ $(function() {
         });
     });
     
+    $("#listDraft").click(function() {
+        $('#playerlist').html(' ');
+        var ajax = $.ajax('/players/draftlist', {
+            type: 'GET',
+            datatype: 'JSON'
+        });
+        ajax.done(function(res) {
+            if(res.length == 0) {
+                console.log('Nothing!');
+            }
+            console.log(res);
+            for(let i in res) {
+                $('#playerlist').append('<div> <ul class="players-list"> <li class="player-rank">' + res[i].round + '</li> <li class="player-name">' + res[i].roundPick + '</li> <li class="player-position">' + res[i].overallPick + '</li> <li class="player-college">' + res[i].team + '</li> <li class="player-posrank">' + res[i].pic + '</li> </ul> </div>');
+            }
+        });
+    });
+    
     $("#listPlayers").click(function() {
+        $('#playerlist').html(' ');
         var ajax = $.ajax('/players/frontlist', {
             type: 'GET',
             datatype: 'JSON'
@@ -118,7 +136,7 @@ $(function() {
     });
     
     $("#listQBs").click(function() {
-        $('#playerlist').html('');
+        $('#playerlist').html(' ');
         var ajax = $.ajax('/players/qblist', {
             type: 'GET',
             datatype: 'JSON'
@@ -127,6 +145,7 @@ $(function() {
             if(res.length == 0) {
                 console.log('Nothing!');
             }
+            console.log(res);
             for(let i in res) {
                 $('#playerlist').append('<div> <ul class="players-list"> <li class="player-rank">' + res[i].overall + '</li> <li class="player-name">' + res[i].name + '</li> <li class="player-position">' + res[i].position + '</li> <li class="player-college">' + res[i].school + '</li> <li class="player-posrank">' + res[i].posrank + '</li> </ul> </div>');
             }
@@ -357,8 +376,139 @@ $(function() {
         });
     });
     
+    $("#listDraftR1").click(function() {
+        $('#playerlist').html(' ');
+        var ajax = $.ajax('/players/draftlistr1', {
+            type: 'GET',
+            datatype: 'JSON'
+        });
+        ajax.done(function(res) {
+            if(res.length == 0) {
+                console.log('Nothing!');
+            }
+            console.log(res);
+            for(let i in res) {
+                $('#playerlist').append('<div> <ul class="players-list"> <li class="player-rank">' + res[i].round + '</li> <li class="player-name">' + res[i].roundPick + '</li> <li class="player-position">' + res[i].overallPick + '</li> <li class="player-college">' + res[i].team + '</li> <li class="player-posrank">' + res[i].pic + '</li> </ul> </div>');
+            }
+        });
+    });    
+
+    $("#listDraftR2").click(function() {
+        $('#playerlist').html(' ');
+        var ajax = $.ajax('/players/draftlistr2', {
+            type: 'GET',
+            datatype: 'JSON'
+        });
+        ajax.done(function(res) {
+            if(res.length == 0) {
+                console.log('Nothing!');
+            }
+            console.log(res);
+            for(let i in res) {
+                $('#playerlist').append('<div> <ul class="players-list"> <li class="player-rank">' + res[i].round + '</li> <li class="player-name">' + res[i].roundPick + '</li> <li class="player-position">' + res[i].overallPick + '</li> <li class="player-college">' + res[i].team + '</li> <li class="player-posrank">' + res[i].pic + '</li> </ul> </div>');
+            }
+        });
+    });
+    
+    $("#listDraftR3").click(function() {
+        $('#playerlist').html(' ');
+        var ajax = $.ajax('/players/draftlistr3', {
+            type: 'GET',
+            datatype: 'JSON'
+        });
+        ajax.done(function(res) {
+            if(res.length == 0) {
+                console.log('Nothing!');
+            }
+            console.log(res);
+            for(let i in res) {
+                $('#playerlist').append('<div> <ul class="players-list"> <li class="player-rank">' + res[i].round + '</li> <li class="player-name">' + res[i].roundPick + '</li> <li class="player-position">' + res[i].overallPick + '</li> <li class="player-college">' + res[i].team + '</li> <li class="player-posrank">' + res[i].pic + '</li> </ul> </div>');
+            }
+        });
+    });    
+
+    $("#listDraftR4").click(function() {
+        $('#playerlist').html(' ');
+        var ajax = $.ajax('/players/draftlistr4', {
+            type: 'GET',
+            datatype: 'JSON'
+        });
+        ajax.done(function(res) {
+            if(res.length == 0) {
+                console.log('Nothing!');
+            }
+            console.log(res);
+            for(let i in res) {
+                $('#playerlist').append('<div> <ul class="players-list"> <li class="player-rank">' + res[i].round + '</li> <li class="player-name">' + res[i].roundPick + '</li> <li class="player-position">' + res[i].overallPick + '</li> <li class="player-college">' + res[i].team + '</li> <li class="player-posrank">' + res[i].pic + '</li> </ul> </div>');
+            }
+        });
+    });
+
+    $("#listDraftR5").click(function() {
+        $('#playerlist').html(' ');
+        var ajax = $.ajax('/players/draftlistr5', {
+            type: 'GET',
+            datatype: 'JSON'
+        });
+        ajax.done(function(res) {
+            if(res.length == 0) {
+                console.log('Nothing!');
+            }
+            console.log(res);
+            for(let i in res) {
+                $('#playerlist').append('<div> <ul class="players-list"> <li class="player-rank">' + res[i].round + '</li> <li class="player-name">' + res[i].roundPick + '</li> <li class="player-position">' + res[i].overallPick + '</li> <li class="player-college">' + res[i].team + '</li> <li class="player-posrank">' + res[i].pic + '</li> </ul> </div>');
+            }
+        });
+    });
+    
+    $("#listDraftR6").click(function() {
+        $('#playerlist').html(' ');
+        var ajax = $.ajax('/players/draftlistr6', {
+            type: 'GET',
+            datatype: 'JSON'
+        });
+        ajax.done(function(res) {
+            if(res.length == 0) {
+                console.log('Nothing!');
+            }
+            console.log(res);
+            for(let i in res) {
+                $('#playerlist').append('<div> <ul class="players-list"> <li class="player-rank">' + res[i].round + '</li> <li class="player-name">' + res[i].roundPick + '</li> <li class="player-position">' + res[i].overallPick + '</li> <li class="player-college">' + res[i].team + '</li> <li class="player-posrank">' + res[i].pic + '</li> </ul> </div>');
+            }
+        });
+    });
+    
+    $("#listDraftR7").click(function() {
+        $('#playerlist').html(' ');
+        var ajax = $.ajax('/players/draftlistr7', {
+            type: 'GET',
+            datatype: 'JSON'
+        });
+        ajax.done(function(res) {
+            if(res.length == 0) {
+                console.log('Nothing!');
+            }
+            for(let i in res) {
+                $('#playerlist').append('<div> <ul class="players-list"> <li class="player-rank">' + res[i].round + '</li> <li class="player-name">' + res[i].roundPick + '</li> <li class="player-position">' + res[i].overallPick + '</li> <li class="player-college">' + res[i].team + '</li> <li class="player-posrank">' + res[i].pic + '</li> </ul> </div>');
+            }
+        });
+    });
+    
     $("#deletePlayers").click(function() {
         var ajax = $.ajax('/players/delete', {
+            type: 'DELETE',
+            datatype: 'JSON'
+        });
+        ajax.done(function(res) {
+            if(res.length == 0) {
+                console.log('Nothing!');
+            }
+            console.log(res);
+        });
+    });
+    
+    $("#deleteDraft").click(function() {
+        var ajax = $.ajax('/draft/delete', {
             type: 'DELETE',
             datatype: 'JSON'
         });
@@ -379,6 +529,15 @@ $(function() {
             for (let i in res) {
                 console.log(res[i].username);
             }
+        });
+    });
+    
+    $('#click-to-logout').click (function () {
+        var ajax = $.ajax ('/logout', {
+            type: 'GET'
+        });
+        ajax.done (function (res) {
+            window.location.reload(true);
         });
     });
     

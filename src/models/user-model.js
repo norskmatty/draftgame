@@ -13,6 +13,10 @@ var UserSchema = new mongoose.Schema({
     players: {
         type: Array,
         required: false
+    },
+    team: {
+        type: String,
+        required: false
     }
 });
 
