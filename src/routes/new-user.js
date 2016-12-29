@@ -1,4 +1,4 @@
-module.exports = function (app, passport, User, bcrypt) {
+module.exports = function (app, passport, Users, bcrypt) {
 
     app.post ('/new-user', function (req, res) {
     if (! req.body) {
@@ -33,7 +33,7 @@ module.exports = function (app, passport, User, bcrypt) {
         });
     }
     
-    User.find ({
+    Users.find ({
         username: username
     }, function (err, doc) {
         if (err) {
@@ -85,12 +85,16 @@ module.exports = function (app, passport, User, bcrypt) {
                             message: 'Internal server error'
                         });
                 }
+                
+                console.log(username + password);
             
-                User.create({
+                Users.create({
                     username : username,
                     password : hash,
+                    team : "Seattle Seahawks"
                     }, function (err, user) {
                         if (err) {
+                            console.log(err);
                             return res.status(500).json ({
                                 message: 'Internal Server Error'
                             });
@@ -101,6 +105,7 @@ module.exports = function (app, passport, User, bcrypt) {
                                     message: 'Internal Server Error'
                                 });
                             }
+                            console.log(user);
                             return res.status(201).json (user);
                         });
                         

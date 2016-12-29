@@ -26,7 +26,7 @@ $(function() {
                 return;
             }
             else {
-            
+                console.log(res);
                 $('#newuser').hide();
                 $('#stocks').show();
                 $('#nav-open').hide();
@@ -62,11 +62,7 @@ $(function() {
                 return;
             }
             else {
-                $('#login').hide();
-                $('#stocks').show();
-                $('#nav-open').hide();
-                $('#nav-logged-in').show();
-                $('#total-money').show();
+                console.log(res);
             }
         });
     });
@@ -88,8 +84,8 @@ $(function() {
     
     $("#updatePlayer").click(function() {
         var item = {
-             name : "Chuck Clark",
-             posrank : 33
+             draftpos : 23,
+             pic : "buccaneers.png"
         };
         var ajax = $.ajax('/players/update', {
             type: 'PUT',
@@ -98,7 +94,7 @@ $(function() {
             contentType: 'application/json'
         });
         ajax.done(function(res) {
-            console.log(res.name);
+            console.log(res.pic);
         });
     });
     
@@ -388,7 +384,7 @@ $(function() {
             }
             console.log(res);
             for(let i in res) {
-                $('#playerlist').append('<div> <ul class="players-list"> <li class="player-rank">' + res[i].round + '</li> <li class="player-name">' + res[i].roundPick + '</li> <li class="player-position">' + res[i].overallPick + '</li> <li class="player-college">' + res[i].team + '</li> <li class="player-posrank">' + res[i].pic + '</li> </ul> </div>');
+                $('#playerlist').append('<div> <ul class="players-list"> <li class="helmet-image"> <img src="../images/' + res[i].pic + '"> </li> <li class="player-rank">' + res[i].round + '</li> <li class="player-name">' + res[i].roundPick + '</li> <li class="player-position">' + res[i].overallPick + '</li> <li class="player-college">' + res[i].team + '</li> </ul> </div>');
             }
         });
     });    
@@ -539,6 +535,733 @@ $(function() {
         ajax.done (function (res) {
             window.location.reload(true);
         });
+    });
+    
+    $('#choose-team').click (function () {
+        $('#team-select-box').show();
+    });
+    
+    $('.bills').hover(function() {
+        $('#pointer').css('margin-left', '93px');
+        $('#pointer').css('margin-top', '30px');
+       $('#pointer').show();    
+    });
+    
+    $('.bills').mouseleave(function() {
+        $('#pointer').hide();
+    });
+    
+    $('.bills').click(function() {
+        var item = {'team' : "Buffalo Bills"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.dolphins').hover(function() {
+        $('#pointer').css('margin-left', '93px');
+        $('#pointer').css('margin-top', '80px');
+        $('#pointer').show();    
+    });
+
+        $('.dolphins').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.dolphins').click(function() {
+        var item = {'team' : "Miami Dolphins"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+    
+    $('.patriots').hover(function() {
+        $('#pointer').css('margin-left', '93px');
+        $('#pointer').css('margin-top', '130px');
+        $('#pointer').show();    
+    });
+
+    $('.patriots').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.patriots').click(function() {
+        var item = {'team' : "New England Patriots"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.jets').hover(function() {
+        $('#pointer').css('margin-left', '93px');
+        $('#pointer').css('margin-top', '180px');
+        $('#pointer').show();    
+    });
+
+    $('.jets').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.jets').click(function() {
+        var item = {'team' : "New York Jets"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.cowboys').hover(function() {
+        $('#pointer').css('margin-left', '93px');
+        $('#pointer').css('margin-top', '255px');
+        $('#pointer').show();    
+    });
+
+    $('.cowboys').mouseleave(function() {
+        $('#pointer').hide();
+    });    
+
+    $('.cowboys').click(function() {
+        var item = {'team' : "Dallas Cowboys"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+    
+    $('.giants').hover(function() {
+        $('#pointer').css('margin-left', '93px');
+        $('#pointer').css('margin-top', '305px');
+        $('#pointer').show();    
+    });
+
+    $('.giants').mouseleave(function() {
+        $('#pointer').hide();
+    });   
+
+    $('.giants').click(function() {
+        var item = {'team' : "New York Giants"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.eagles').hover(function() {
+        $('#pointer').css('margin-left', '93px');
+        $('#pointer').css('margin-top', '355px');
+        $('#pointer').show();    
+    });
+
+    $('.eagles').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.eagles').click(function() {
+        var item = {'team' : "Philadelphia Eagles"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.washington').hover(function() {
+        $('#pointer').css('margin-left', '93px');
+        $('#pointer').css('margin-top', '405px');
+        $('#pointer').show();    
+    });
+
+    $('.washington').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.washington').click(function() {
+        var item = {'team' : "Washington Redskins"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+    
+    $('.ravens').hover(function() {
+        $('#pointer').css('margin-left', '358px');
+        $('#pointer').css('margin-top', '30px');
+       $('#pointer').show();    
+    });
+    
+    $('.ravens').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.ravens').click(function() {
+        var item = {'team' : "Baltimore Ravens"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.bengals').hover(function() {
+        $('#pointer').css('margin-left', '358px');
+        $('#pointer').css('margin-top', '80px');
+        $('#pointer').show();    
+    });
+
+        $('.bengals').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.bengals').click(function() {
+        var item = {'team' : "Cincinnati Bengals"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+    
+    $('.browns').hover(function() {
+        $('#pointer').css('margin-left', '358px');
+        $('#pointer').css('margin-top', '130px');
+        $('#pointer').show();    
+    });
+
+    $('.browns').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.browns').click(function() {
+        var item = {'team' : "Cleveland Browns"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.steelers').hover(function() {
+        $('#pointer').css('margin-left', '358px');
+        $('#pointer').css('margin-top', '180px');
+        $('#pointer').show();    
+    });
+
+    $('.steelers').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.steelers').click(function() {
+        var item = {'team' : "Pittsburgh Steelers"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.bears').hover(function() {
+        $('#pointer').css('margin-left', '358px');
+        $('#pointer').css('margin-top', '255px');
+        $('#pointer').show();    
+    });
+
+    $('.bears').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.bears').click(function() {
+        var item = {'team' : "Chicago Bears"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+    
+    $('.lions').hover(function() {
+        $('#pointer').css('margin-left', '358px');
+        $('#pointer').css('margin-top', '305px');
+        $('#pointer').show();    
+    });
+
+    $('.lions').mouseleave(function() {
+        $('#pointer').hide();
+    });   
+    
+    $('.lions').click(function() {
+        var item = {'team' : "Detroit Lions"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.packers').hover(function() {
+        $('#pointer').css('margin-left', '358px');
+        $('#pointer').css('margin-top', '355px');
+        $('#pointer').show();    
+    });
+
+    $('.packers').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.packers').click(function() {
+        var item = {'team' : "Green Bay Packers"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.vikings').hover(function() {
+        $('#pointer').css('margin-left', '358px');
+        $('#pointer').css('margin-top', '405px');
+        $('#pointer').show();    
+    });
+
+    $('.vikings').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.vikings').click(function() {
+        var item = {'team' : "Minnesota Vikings"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+    
+    $('.texans').hover(function() {
+        $('#pointer').css('margin-left', '623px');
+        $('#pointer').css('margin-top', '30px');
+       $('#pointer').show();    
+    });
+    
+    $('.texans').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.texans').click(function() {
+        var item = {'team' : "Houston Texans"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.colts').hover(function() {
+        $('#pointer').css('margin-left', '623px');
+        $('#pointer').css('margin-top', '80px');
+        $('#pointer').show();    
+    });
+
+    $('.colts').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.colts').click(function() {
+        var item = {'team' : "Indianapolis Colts"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+    
+    $('.jaguars').hover(function() {
+        $('#pointer').css('margin-left', '623px');
+        $('#pointer').css('margin-top', '130px');
+        $('#pointer').show();    
+    });
+
+    $('.jaguars').mouseleave(function() {
+        $('#pointer').hide();
+    });
+    
+    $('.jaguars').click(function() {
+        var item = {'team' : "Jacksonville Jaguars"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.titans').hover(function() {
+        $('#pointer').css('margin-left', '623px');
+        $('#pointer').css('margin-top', '180px');
+        $('#pointer').show();    
+    });
+
+    $('.titans').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.titans').click(function() {
+        var item = {'team' : "Tenneessee Titans"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.falcons').hover(function() {
+        $('#pointer').css('margin-left', '623px');
+        $('#pointer').css('margin-top', '255px');
+        $('#pointer').show();    
+    });
+
+    $('.falcons').mouseleave(function() {
+        $('#pointer').hide();
+    }); 
+
+    $('.falcons').click(function() {
+        var item = {'team' : "Atlanta Falcons"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+    
+    $('.panthers').hover(function() {
+        $('#pointer').css('margin-left', '623px');
+        $('#pointer').css('margin-top', '305px');
+        $('#pointer').show();    
+    });
+
+    $('.panthers').mouseleave(function() {
+        $('#pointer').hide();
+    });    
+
+    $('.panthers').click(function() {
+        var item = {'team' : "Carolina Panthers"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.saints').hover(function() {
+        $('#pointer').css('margin-left', '623px');
+        $('#pointer').css('margin-top', '355px');
+        $('#pointer').show();    
+    });
+
+    $('.saints').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.saints').click(function() {
+        var item = {'team' : "New Orleans Saints"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.buccaneers').hover(function() {
+        $('#pointer').css('margin-left', '623px');
+        $('#pointer').css('margin-top', '405px');
+        $('#pointer').show();    
+    });
+
+    $('.buccaneers').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.buccaneers').click(function() {
+        var item = {'team' : "Tampa Bay Buccaneers"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+    
+    $('.broncos').hover(function() {
+        $('#pointer').css('margin-left', '888px');
+        $('#pointer').css('margin-top', '30px');
+       $('#pointer').show();    
+    });
+    
+    $('.broncos').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.broncos').click(function() {
+        var item = {'team' : "Denver Broncos"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.chiefs').hover(function() {
+        $('#pointer').css('margin-left', '888px');
+        $('#pointer').css('margin-top', '80px');
+        $('#pointer').show();    
+    });
+
+    $('.chiefs').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.chiefs').click(function() {
+        var item = {'team' : "Kansas City Chiefs"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+    
+    $('.raiders').hover(function() {
+        $('#pointer').css('margin-left', '888px');
+        $('#pointer').css('margin-top', '130px');
+        $('#pointer').show();    
+    });
+
+    $('.raiders').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.chargers').hover(function() {
+        $('#pointer').css('margin-left', '888px');
+        $('#pointer').css('margin-top', '180px');
+        $('#pointer').show();    
+    });
+
+    $('.chargers').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.chargers').click(function() {
+        var item = {'team' : "San Diego Chargers"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.cardinals').hover(function() {
+        $('#pointer').css('margin-left', '888px');
+        $('#pointer').css('margin-top', '255px');
+        $('#pointer').show();    
+    });
+
+    $('.cardinals').mouseleave(function() {
+        $('#pointer').hide();
+    });    
+
+    $('.cardinals').click(function() {
+        var item = {'team' : "Arizona Cardinals"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.rams').hover(function() {
+        $('#pointer').css('margin-left', '888px');
+        $('#pointer').css('margin-top', '305px');
+        $('#pointer').show();    
+    });
+
+    $('.rams').mouseleave(function() {
+        $('#pointer').hide();
+    }); 
+
+    $('.rams').click(function() {
+        var item = {'team' : "Los Angeles Rams"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.niners').hover(function() {
+        $('#pointer').css('margin-left', '888px');
+        $('#pointer').css('margin-top', '355px');
+        $('#pointer').show();    
+    });
+
+    $('.niners').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.niners').click(function() {
+        var item = {'team' : "San Francisco 49ers"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
+    });
+
+    $('.seahawks').hover(function() {
+        $('#pointer').css('margin-left', '888px');
+        $('#pointer').css('margin-top', '405px');
+        $('#pointer').show();    
+    });
+
+    $('.seahawks').mouseleave(function() {
+        $('#pointer').hide();
+    });
+
+    $('.seahawks').click(function() {
+        var item = {'team' : "Seattle Seahawks"};
+        var ajax = $.ajax ('/team/choose', {
+            type: 'PUT',
+            data: JSON.stringify (item),
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+       ajax.done (function(res) {
+          console.log (res); 
+       });
     });
     
 });

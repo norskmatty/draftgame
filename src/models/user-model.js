@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var UserSchema = new mongoose.Schema({
+var UsersSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
@@ -22,7 +22,7 @@ var UserSchema = new mongoose.Schema({
 
 var bcrypt = require('bcryptjs');
 
-UserSchema.methods.validatePassword = function(password, callback) {
+UsersSchema.methods.validatePassword = function(password, callback) {
     bcrypt.compare(password, this.password, function(err, isValid) {
         if(err) {
             callback(err);
@@ -32,6 +32,6 @@ UserSchema.methods.validatePassword = function(password, callback) {
     });
 };
 
-var User = mongoose.model('User', UserSchema);
+var Users = mongoose.model('User', UsersSchema);
 
-module.exports = User;
+module.exports = Users;

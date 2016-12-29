@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var config = require ('./config');
 var Draftorder = require('./src/models/draft-order');
-var User = require ('./src/models/user-model');
+var Users = require ('./src/models/user-model');
 var Player = require ('./src/models/player-model');
 var cookieParser = require ('cookie-parser');
 var http = require ('http');
@@ -71,17 +71,17 @@ passport.serializeUser (function (user, done) {
 });
 
 passport.deserializeUser (function (id, done) {
-    User.findById (id, function (err, user) {
+    Users.findById (id, function (err, user) {
         done (err, user);
     });
 });
 
 require ('./src/routes/login') (app, passport);  //existing user login module
 require ('./src/routes/logout-user') (app);  //logout currently logged in user
-require ('./src/routes/new-user') (app, passport, User, bcrypt);  //new user creation module
-require ('./src/routes/delete-user') (app, User);  //delete a user from the database
+require ('./src/routes/new-user') (app, passport, Users, bcrypt);  //new user creation module
+require ('./src/routes/delete-user') (app, Users);  //delete a user from the database
 require ('./src/routes/get-players') (app, Player);  //print out a list of players to the console
-require ('./src/routes/update-player') (app, Player);  //updates a player
+require ('./src/routes/update-player') (app, Player, Draftorder);  //updates a player
 require ('./src/routes/list-players') (app, Player);  //lists players on screen
 require ('./src/routes/list-draft') (app, Draftorder); //lists draft order
 require ('./src/routes/delete-players') (app, Player); //deletes all players from Player
@@ -108,14 +108,15 @@ require ('./src/routes/list-draftr4') (app, Draftorder); //list round 4
 require ('./src/routes/list-draftr5') (app, Draftorder); //list round 5
 require ('./src/routes/list-draftr6') (app, Draftorder); //list round 6
 require ('./src/routes/list-draftr7') (app, Draftorder); //list round 7
-require ('./src/routes/get-users') (app, User);  //gets a list of users printed to the console 
+require ('./src/routes/get-users') (app, Users);  //gets a list of users printed to the console 
+require ('./src/routes/team-choose') (app, Users, passport); //team choice
 
 io.on ('connection', function (socket) {
     
     console.log ('logged in');
     
-    socket.on ('userData', function (userData) {
-        console.log(userData);
+    socket.on ('choose-bills', function() {
+        console.log(session.passport.user);
     });
 });
 

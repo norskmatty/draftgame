@@ -1,13 +1,13 @@
-module.exports = function(app, Player, Draftorder) {
-    app.put ('/players/update', function (req, res) {
-        console.log(req.body);
-        Draftorder.update(
+module.exports = function(app, Users, passport) {
+    
+    app.put ('/team/choose', function (req, res) {
+       Users.update(
                         {
-                            overallPick: req.body.draftpos
+                            _id: req.session.passport.user
                         },
                         {
                             $set: {
-                                pic: req.body.pic
+                                team: req.body.team
                         }
                     },
                     function (err, doc) {
@@ -15,8 +15,8 @@ module.exports = function(app, Player, Draftorder) {
                             return console.err (err);
                         }
             
-                        Draftorder.find(
-                            {overallPick: req.body.draftpos}, 
+                        Users.find(
+                            {_id: req.session.passport.user}, 
                                 function (err, doc) {
                                     if (err) {
                                         return console.err(err);

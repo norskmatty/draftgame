@@ -1,4 +1,235 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 .players-list li {
     display: inline-block;
     height: 30px;
 }
+
+#team-select-box {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1095px;
+    display: none;
+}
+
+#team-select {
+    display: flex;
+}
+
+.team-select-list {
+    height: 200px;
+    width: 250px;
+}
+
+.team-select-list li {
+    height: 50px;
+    width: 250px;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.tall-thin {
+    height: 475px;
+    width: 25px;
+    background-image: url("../images/tall-thin.png");
+    background-size: 100% 100%;
+}
+
+.long-thin {
+    height: 25px;
+    width: 1045px;
+    background-image: url("../images/long-thin.png");
+    background-size: 100% 100%;
+}
+
+.short-thin {
+    height: 200px;
+    width: 15px;
+    background-image: url("../images/short-thin.png");
+    background-size: 100% 100%;
+}
+
+#team-select-afc, #team-select-nfc {
+    display: flex;
+}
+
+.team-select-list:hover {
+    cursor: pointer;
+}
+
+#pointer {
+    position: absolute;
+    float: left;
+    z-index: 9999;
+    height: 50px;
+    width: 46px;
+    background-image: url("../images/pointer.png");
+    background-size: 100% 100%;
+    display: none;
+}
+
+.bears {
+    background-image: url("../images/tcbears.png");
+    background-size: 100% 100%;
+}
+
+.bengals {
+    background-image: url("../images/tcbengals.png");
+    background-size: 100% 100%;
+}
+
+.bills {
+    background-image: url("../images/tcbills.png");
+    background-size: 100% 100%;
+}
+
+.broncos {
+    background-image: url("../images/tcbroncos.png");
+    background-size: 100% 100%;
+}
+
+.browns {
+    background-image: url("../images/tcbrowns.png");
+    background-size: 100% 100%;
+}
+
+.buccaneers {
+    background-image: url("../images/tcbuccaneers.png");
+    background-size: 100% 100%;
+}
+
+.cardinals {
+    background-image: url("../images/tccardinals.png");
+    background-size: 100% 100%;
+}
+
+.chargers {
+    background-image: url("../images/tcchargers.png");
+    background-size: 100% 100%;
+}
+
+.chiefs {
+    background-image: url("../images/tcchiefs.png");
+    background-size: 100% 100%;
+}
+
+.colts {
+    background-image: url("../images/tccolts.png");
+    background-size: 100% 100%;
+}
+
+.cowboys {
+    background-image: url("../images/tccowboys.png");
+    background-size: 100% 100%;
+}
+
+.dolphins {
+    background-image: url("../images/tcdolphins.png");
+    background-size: 100% 100%;
+}
+
+.eagles {
+    background-image: url("../images/tceagles.png");
+    background-size: 100% 100%;
+}
+
+.falcons {
+    background-image: url("../images/tcfalcons.png");
+    background-size: 100% 100%;
+}
+
+.giants {
+    background-image: url("../images/tcgiants.png");
+    background-size: 100% 100%;
+}
+
+.jaguars {
+    background-image: url("../images/tcjaguars.png");
+    background-size: 100% 100%;
+}
+
+.jets {
+    background-image: url("../images/tcjets.png");
+    background-size: 100% 100%;
+}
+
+.lions {
+    background-image: url("../images/tclions.png");
+    background-size: 100% 100%;
+}
+
+.niners {
+    background-image: url("../images/tcniners.png");
+    background-size: 100% 100%;
+}
+
+.packers {
+    background-image: url("../images/tcpackers.png");
+    background-size: 100% 100%;
+}
+
+.panthers {
+    background-image: url("../images/tcpanthers.png");
+    background-size: 100% 100%;
+}
+
+.patriots {
+    background-image: url("../images/tcpatriots.png");
+    background-size: 100% 100%;
+}
+
+.raiders {
+    background-image: url("../images/tcraiders.png");
+    background-size: 100% 100%;
+}
+
+.rams {
+    background-image: url("../images/tcrams.png");
+    background-size: 100% 100%;
+}
+
+.ravens {
+    background-image: url("../images/tcravens.png");
+    background-size: 100% 100%;
+}
+
+.washington {
+    background-image: url("../images/tcwashington.png");
+    background-size: 100% 100%;
+}
+
+.saints {
+    background-image: url("../images/tcsaints.png");
+    background-size: 100% 100%;
+}
+
+.seahawks {
+    background-image: url("../images/tcseahawks.png");
+    background-size: 100% 100%;
+}
+
+.steelers {
+    background-image: url("../images/tcsteelers.png");
+    background-size: 100% 100%;
+}
+
+.texans {
+    background-image: url("../images/tctexans.png");
+    background-size: 100% 100%;
+}
+
+.titans {
+    background-image: url("../images/tctitans.png");
+    background-size: 100% 100%;
+}
+
+.vikings {
+    background-image: url("../images/tcvikings.png");
+    background-size: 100% 100%;
+}
+

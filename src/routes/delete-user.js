@@ -1,6 +1,6 @@
-module.exports = function (app, User) {
+module.exports = function (app, Users) {
     app.delete ('/users/:name', function (req, res) {
-        User.findOneAndRemove ({
+        Users.findOneAndRemove ({
             username: req.params.name
         }, 
             function (err, username) {
